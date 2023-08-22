@@ -1,8 +1,10 @@
 <template>
-  <div id="nav" v-if="$store.state.user">
-    <router-link to="/">{{$store.state.user.displayName}}</router-link> |
-    <router-link to="/about">About</router-link>  | 
-    <button @click="$store.dispatch('logout')">Logout</button>
+  <div id="nav" v-if="$store.state.user" class="flex-container">
+   <div class="router-links">
+      <router-link to="/">{{$store.state.user.displayName}}</router-link>|
+      <router-link to="/about">About</router-link>
+    </div> 
+    <button class ="logout_btn" @click="$store.dispatch('logout')">Logout</button>
   </div>
   <router-view/>
 </template>
@@ -41,6 +43,11 @@ export default {
   color: #2c3e50;
 }
 
+.router-links {
+  display: flex;
+  align-items: center;
+}
+
 #nav {
   padding: 60px;
   height: 40px;
@@ -49,11 +56,29 @@ export default {
 #nav a {
   font-weight: bold;
   color: #2c3e50;
-  margin-top: 50%;
+  
   font-size: 26px;
+  margin-right: 20px;
 }
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.logout_btn{
+  background-color: rgb(245, 66, 101);
+	color: #FFF;
+	font-weight: 700;
+	padding: 1rem 2rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	text-transform: uppercase;
+  margin-right: 10px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
 }
 </style>
