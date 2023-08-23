@@ -1,6 +1,6 @@
 <template>
   <main class="about">
-    <h1>HI! I am {{$store.state.user.displayName}}</h1>
+    <h1>HI! I am {{store.user.displayName}}</h1>
   </main>
 </template>
 
@@ -15,6 +15,12 @@ export default {
   setup() {
     const store = useAuthStore()
     console.log('newwww-->',store.state)
+    const user = store.user;
+
+    return{
+      store,
+      user
+    }
   }
   
 }

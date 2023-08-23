@@ -1,25 +1,36 @@
 <template>
-	<main class="login">
-		<section class="forms">
-			<form class="login" @submit.prevent="login">
-				<h2>Login</h2>
-				<input 
-					type="email" 
-					placeholder="Email address"
-					v-model="login_form.email" />
-				<input 
-					type="password" 
-					placeholder="Password" 
-					v-model="login_form.password" />						
-				<input 
-					type="submit" 
-					value="Login" />
-					if you don't have account then <router-link to="/register">Sign up!</router-link>
-			</form>
-
-		</section>
-	</main>
+  <main class="login">
+    <section class="forms">
+      <form class="login" @submit.prevent="login">
+        <h2 class="text-2xl uppercase mb-8">Login</h2>
+        <input
+          type="email"
+          placeholder="Email address"
+          v-model="login_form.email"
+          class="w-full max-w-md mb-6 p-2 border-b-2 border-gray-500 outline-none"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          v-model="login_form.password"
+          class="w-full max-w-md mb-6 p-2 border-b-2 border-gray-500 outline-none"
+        />
+        <input
+          type="submit"
+          value="Login"
+          class="bg-red-500 text-white font-semibold py-3 px-6 rounded cursor-pointer text-uppercase"
+        />
+        <p class="text-gray-600 mt-4">
+          If you don't have an account then
+          <router-link to="/register" class="text-red-500">Sign up!</router-link>
+        </p>
+      </form>
+    </section>
+  </main>
 </template>
+
+
+
 
 <script>
 import { ref } from 'vue'
@@ -55,6 +66,8 @@ console.log('new',login_form)
 </script>
 
 <style>
+
+
 .forms {
 	display: flex;
 	min-height: 100vh;

@@ -1,6 +1,6 @@
 <template>
   <main class="home">
-    <h1 class="style-heading">Welcome! {{$store.state.user.displayName}}</h1>
+    <h1 class="style-heading">Welcome! {{store.user.displayName}}</h1>
   </main>
 </template>
 
@@ -14,8 +14,16 @@ import { useAuthStore } from '../store/authStore.js';
 export default {
   setup() {
     const store = useAuthStore()
-    console.log('newwww-->',store.state)
+    const user = store.user;
+
+    return{
+      user,
+      store
+    }
   }
+
+
+
   
 }
 </script>

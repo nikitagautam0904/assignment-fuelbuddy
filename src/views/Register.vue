@@ -1,30 +1,42 @@
 <template>
-	<main class="login">
-		<section class="forms">
-
-			<form class="register" @submit.prevent="register">
-				<h2>Register</h2>
-				<input 
-					placeholder="Name" 
-					v-model="register_form.name" />
-				<input 
-					type="email" 
-					placeholder="Email address"
-					v-model="register_form.email" />
-				<input 
-					type="password" 
-					placeholder="Password" 
-					v-model="register_form.password" />
-				<input 
-					type="submit" 
-					value="Register" />
-                    if you already have account then <router-link to="/login">Sign in!</router-link>
-			</form>
-
-		
-		</section>
-	</main>
+  <main class="login">
+    <section class="forms">
+      <form class="register" @submit.prevent="register">
+        <h2 class="text-2xl mb-8">Register</h2>
+        <input
+          placeholder="Name"
+          v-model="register_form.name"
+          class="w-full max-w-md mb-6 p-2 border-b-2 border-gray-500 outline-none"
+        />
+        <input
+          type="email"
+          placeholder="Email address"
+          v-model="register_form.email"
+          class="w-full max-w-md mb-6 p-2 border-b-2 border-gray-500 outline-none"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          v-model="register_form.password"
+          class="w-full max-w-md mb-6 p-2 border-b-2 border-gray-500 outline-none"
+        />
+        <input
+          type="submit"
+          value="Register"
+          class="bg-red-500 text-white font-semibold py-3 px-6 rounded cursor-pointer text-uppercase"
+        />
+        <p class="text-gray-600 mt-4">
+          If you already have an account then
+          <router-link to="/login" class="text-red-500">Sign in!</router-link>
+        </p>
+      </form>
+    </section>
+  </main>
 </template>
+
+
+
+
 
 <script>
 import { ref } from 'vue'
