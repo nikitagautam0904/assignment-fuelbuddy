@@ -7,12 +7,13 @@
 
 <script>
 
-import { useStore } from 'vuex'
+// import { useStore } from 'vuex'
 
+import { useAuthStore } from '../store/authStore.js';
 
 export default {
   setup() {
-    const store = useStore()
+    const store = useAuthStore()
     console.log('newwww-->',store.state)
   }
   

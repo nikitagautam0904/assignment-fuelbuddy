@@ -1,28 +1,42 @@
 <template>
-  <div id="nav" v-if="$store.state.user" class="flex-container">
+  <div id="nav" v-if="store.user" class="flex-container">
    <div class="router-links">
-      <router-link to="/">{{$store.state.user.displayName}}</router-link>|
+      <router-link to="/">{{store.user.displayName}}</router-link>|
       <router-link to="/about">About</router-link>
     </div> 
-    <button class ="logout_btn" @click="$store.dispatch('logout')">Logout</button>
+    <button class ="logout_btn" @click="logouts">Logout</button>
   </div>
   <router-view/>
 </template>
 
 <script>
 import { onBeforeMount } from 'vue'
-import { useStore } from 'vuex'
+// import { useStore } from 'vuex'
+import { useAuthStore } from './store/authStore.js';
+
 
 
 export default {
   setup() {
-    const store = useStore()
-    console.log('newwww-->',store.state)
+    const store = useAuthStore()
+    const user = store.user;
 
+   
+
+const logouts = ()=>{
+  store.logout()
+}
     onBeforeMount(() => {
-      store.dispatch('fetchUser')
+      store.fetchUser()
+    
       
     })
+    return{
+      store,
+      
+  user,
+      logouts
+    }
     
   }
   

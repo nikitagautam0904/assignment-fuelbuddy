@@ -23,23 +23,27 @@
 
 <script>
 import { ref } from 'vue'
-import { useStore } from 'vuex'
+// import { useStore } from 'vuex'
+import { useAuthStore } from '../store/authStore.js';
 
 export default {
 	
 	setup () {
 		const login_form = ref({});
 		const register_form = ref({});
-		const store = useStore();
+		const store = useAuthStore();
 
 		const login = () => {
-			store.dispatch('login', login_form.value);
+			// store.dispatch('login',login_form.value);
+			store.login(login_form.value)
 		}
 
 		const register = () => {
-			store.dispatch('register', register_form.value);
+			// store.dispatch('register', register_form.value);
+			store.register(register_form.value)
 		}
 
+console.log('new',login_form)
 		return {
 			login_form,
 			register_form,
